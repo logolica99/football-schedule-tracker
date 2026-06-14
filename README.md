@@ -20,7 +20,7 @@ npm run preview
 
 ## Deploy to GitHub Pages
 
-This repo is configured to deploy automatically via GitHub Actions on every push to `main`.
+This repo deploys automatically on every push to `main`. The workflow builds the app and publishes the `dist` folder to the `gh-pages` branch.
 
 ### One-time GitHub setup
 
@@ -33,13 +33,13 @@ This repo is configured to deploy automatically via GitHub Actions on every push
 
 2. In your repo on GitHub, go to **Settings → Pages**.
 
-3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Under **Build and deployment**, set:
+   - **Source:** Deploy from a branch
+   - **Branch:** `gh-pages` / `/ (root)`
 
-4. After the first push to `main`, the **Deploy to GitHub Pages** workflow will run. Once it completes, your site will be live at:
+   Do **not** use the `main` branch — that serves raw source files and causes a blank page with a `/src/main.tsx` 404.
+
+4. Wait for the **Deploy to GitHub Pages** workflow to finish under the **Actions** tab, then visit:
    ```
    https://logolica99.github.io/football-schedule-tracker/
    ```
-
-### Manual deploy
-
-You can also trigger a deploy from the **Actions** tab → **Deploy to GitHub Pages** → **Run workflow**.
